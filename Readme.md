@@ -5,6 +5,7 @@ O último projeto do Curso de React Native 💻☕✨
 - Turma : 922A / Campus : IFAL/Maceió 🏫
 - Curso : Desenvolvimento de sistemas 🖥️⌨️🖱️
 
+<hr>
 
 <table>
   <tr>
