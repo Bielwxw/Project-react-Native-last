@@ -19,3 +19,5 @@ O último projeto do Curso de React Native 💻☕✨
 **[React Navigation](https://reactnavigation.org/)**
 
 **[Open Weather API](https://openweathermap.org/current)**
+
+**[React Native / Documentation](https://reactnative.dev/)**
