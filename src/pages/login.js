@@ -1,92 +1,80 @@
-import React, { useState } from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import React, { useState } from 'react'
+import { View, StyleSheet, Button, ImageBackground } from 'react-native'
+import Titulo from '../Components/titulo'
+import Input from '../Components/input'
 
-import Titulo from '../components/Titulo';
-import Input from '../components/Input';
+
 
 export default function Login({ navigation }) {
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
 
     const submitLogin = () => {
         if (verificar()) {
-            navigation.navigate('Aplicativo');
+            navigation.navigate('Aplicativo')
         }
     }
 
     const verificar = () => {
         if (email.trim() === '') {
-            alert('O campo de email está vazio!');
+            alert('O campo de email está vazio!')
             return false;
         }
         else if (senha.trim() === '') {
-            alert('O campo de senha está vazio!');
+            alert('O campo de senha está vazio!')
             return false;
         }
         return true;
     }
 
     return (
-        <View style={style.geral}>
-            <Container
-                padding={15}
-                width="80%"
-            >
-                <Header title="Conta" fontSize={30} />
+        <ImageBackground source={require('../../assets/img-project.jpg')} style={style.geral}>
+            <View style={style.container}>
+                <Titulo title="Conta"/>
                 <Input
                     value={email}
-                    marginVertical={5}
                     placeholder="Email"
                     keyboardType="email-address"
-                    paddingVertical={4}
-                    paddingHorizontal={10}
-                    placeholderColor="#999"
-                    onChangeText={(texto) => setEmail(texto)}
+                    type="email-address"
+                    funcao={(texto) => setEmail(texto)}
                 />
                 <Input
                     password
                     value={senha}
                     placeholder="Senha"
-                    marginVertical={5}
-                    paddingVertical={4}
-                    paddingHorizontal={10}
-                    placeholderColor="#999"
-                    onChangeText={(texto) => setSenha(texto)}
+                    funcao={(texto) => setSenha(texto)}
                 />
-                <Container
-                    marginTop={10}
-                    gap={5}
-                    flexDirection="row"
-                    justifyContent="start"
-                >
+                <View style={style.btnContainer}>
                     <Button
                         title="Entrar"
                         onPress={submitLogin}
                         style={style.btn}
                     />
                     <Button title="Cadastro" />
-                </Container>
-            </Container>
-        </View>
+                </View>
+            </View>
+        </ImageBackground>
     );
 }
+
+
 
 const style = StyleSheet.create({
     geral: {
         flex: 1,
-        backgroundColor: '#ddd',
         alignItems: 'center',
         justifyContent: 'center',
+        resizeMode: 'stretch'
     },
     container: {
-        margin: 0,
-        marginTop: 0,
-        padding: 0,
-        backgroundColor: '#fff',
-        width: 'auto',
+        padding: 15,
+        width: '80%',
         borderRadius: 12,
-        gap: 0,
-        flexDirection: 'column',
-        justifyContent: 'flex-start'
+        backgroundColor: '#fff'
+    },
+    btnContainer: {
+        gap: 5,
+        marginTop: 10,
+        flexDirection: "row"
     }
 });
